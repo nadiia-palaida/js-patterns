@@ -1,23 +1,24 @@
 interface IIterator {
     getNext()
+
     hasMore()
 }
 
 class ButtonsIterator implements IIterator {
-   constructor(private elements: object[], private keys: any = Object.keys(elements), private index: number = 0) {
-   }
+    constructor(private elements: object[], private keys: any = Object.keys(elements), private index: number = 0) {
+    }
 
-   getNext() {
+    getNext() {
         return this.elements[this.keys[this.index++]]
-   }
+    }
 
     hasMore() {
-       return this.index < this.keys.length
+        return this.index < this.keys.length
     }
 }
 
 interface ICollection {
-    createCollection(collection: any)
+    createCollection(collection: object[])
 }
 
 class ButtonsCollection implements ICollection {
@@ -37,7 +38,7 @@ buttonCollection1.createCollection([
 
 const buttonsIterator1 = new ButtonsIterator(buttonCollection1.collection)
 
-while(buttonsIterator1.hasMore()) {
+while (buttonsIterator1.hasMore()) {
     console.log(buttonsIterator1.getNext())
 }
 

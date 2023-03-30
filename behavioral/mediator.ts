@@ -57,7 +57,7 @@ class OrderFormMediator implements Mediator{
     constructor(private input: Input, private select: Select, private button: Button) {
         this.input.setOrderFormMediator(this)
         this.select.setOrderFormMediator(this)
-        this.button.setOrderFormMediator(this)
+        this.button.setOrderFormMediator(this) 
     }
 
     notify(sender: object, event: string) {
