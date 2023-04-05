@@ -1,12 +1,7 @@
-interface ISubmitter {
-    next(submitter: ISubmitter): ISubmitter
-    handle(data: object): any
-}
+abstract class AbstractSubmitter {
+    public nextSubmitter: AbstractSubmitter
 
-abstract class AbstractSubmitter implements ISubmitter {
-    public nextSubmitter: ISubmitter
-
-    next(submitter: ISubmitter): ISubmitter {
+    next(submitter: AbstractSubmitter): AbstractSubmitter {
         this.nextSubmitter = submitter
         return submitter;
     }
